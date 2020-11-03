@@ -26,6 +26,27 @@ export default{
       },
       wildBenefits:[
         {
+          id:'freeGame',
+          h3: {
+            "en-us": "Free with wild",
+            "es-mx": "Gratis con wild",
+            "de-de": "Kostenlos mit wild",
+            "fr-fr": "Offert avec Wild",
+            "it-it": "Gratis con i vantaggi wild",
+            "es-es": "Gratis con wild",
+            "pt-br": "Gratuito com wild"
+          },
+          p: {
+            "en-us": "Get one brand new game included every month with membership! Valued at {0} or higher.",
+            "es-mx": "¡Tu cuenta de miembro incluye cada mes un juego nuevo valorado, como mínimo, en {0} $!",
+            "de-de": "Jeden Monat gibt es ein brandneues Spiel im Wert von {0} oder höher mit deiner wild Mitgliedschaft!",
+            "fr-fr": "Obtenez un tout nouveau jeu inclus dans votre adhésion mensuelle ! D’une valeur de {0} ou plus.",
+            "it-it": "Incluso nell'abbonamento, ricevi ogni mese un gioco nuovo dal valore di {0} o superiore!",
+            "es-es": "¡Tu cuenta de miembro incluye cada mes un juego nuevo valorado, como mínimo, en {0}!",
+            "pt-br": "Ganhe um novo jogo incluído todos os meses com a assinatura! Com valor a partir de {0}."
+          }
+        },
+        {
           id:'unlimitedPlay',
           h3: {
             "en-us": "Unlimited Play",
@@ -79,11 +100,6 @@ export default{
             "pt-br": "Os membros recebem descontos em aluguéis e compras em milhares de jogos."
           }
         },
-        // {
-        //   id:'rental',
-        //   h3: 'Rental Applies to Purchase',
-        //   p: 'Highest rental will go towards the purchase of the game.'
-        // },
         {
           id:'adFreeGaming',
           h3: {
@@ -133,7 +149,7 @@ section#benefitsSection{
     color: $black;
   }
   &> div{
-    width:27%;
+    width:20%;
     margin: 0 2%;
   }
 }
@@ -144,8 +160,8 @@ section#benefitsSection{
   section#benefitsSection{
     padding:10px 5px;
     &> div{
-      width:28%;
-      margin:0 2%;
+      // width:30%;
+      // margin:0 2%;
     }
   }
 

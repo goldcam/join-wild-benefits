@@ -19,7 +19,7 @@ export default {
         if(typeof dataLayer !== 'undefined'){
           lang = dataLayer[0].userLanguage.toLowerCase()
         }else{
-          userLanguage = "de-de"
+          userLanguage = "en-us"
         }
         return userLanguage
       }

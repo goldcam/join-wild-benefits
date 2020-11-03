@@ -2,7 +2,7 @@
   <div :id="wildBenefit.id" :class="`${wildBenefit.id} benefit`">
     <div class="icon"></div>
     <h3>{{ wildBenefit.h3[this.lang()] }}</h3>
-    <p>{{ wildBenefit.p[this.lang()] }}</p>
+    <p>{{this.filterString(wildBenefit.p[this.lang()])}} <a v-if="wildBenefit.a" :href="wildBenefit.a.href"> {{ wildBenefit.a.lang[this.lang()] }}</a></p>
   </div>
 </template>
 <script>
@@ -19,6 +19,30 @@ export default{
           userLanguage = "en-us"
         }
         return userLanguage
+      },
+      domain: window.location.hostname.replace('www.wildtangent',''),
+      prices:{
+          "localhost": "$9.99",
+          ".com": "$9.99",            //usd
+          ".eu": "8.56 €",            //eur
+          ".de": "8.56 €",            //eur
+          ".fr": "8.56 €",            //eur
+          ".it": "8.56 €",            //eur
+          ".es": "8.56 €",            //eur
+          ".ca": "$13.31",            //cad
+          ".co.uk": "£ 7.73",          //gbp
+          ".mx": "$212.36",              //mxn
+          ".com.br": "R$ 57.73",      //brl
+          ".co.nz": "$15.12",      //nzd
+          ".com.au": "$14.23",         //aud
+          ".kr": "₩ 11370.77",             //krw
+          ".sg": "S$ 13.65",               //sgd
+          ".hk": "HK$ 77.46",            //hkd
+          ".in":"₹ 744.67"                //inr
+      },
+      filterString: function(str){
+        const regex = /\{0\}/gi;
+        return str.replace(regex, this.prices[this.domain]);
       }
     }
   }
@@ -38,7 +62,7 @@ div.benefit{
     font-family: 'Open Sans', sans-serif;
   }
   p{
-    font-size: 1em;
+    font-size: .925em;
     line-height: 1.4em;
     margin: 1em 0;
     a{
@@ -72,6 +96,12 @@ div.benefit{
     background-size:63%;
   }
 }
+.freeGame{
+  .icon{
+    background: url(assets/benefits-icons/free-game.png) no-repeat;
+    background-size:63%;
+  }
+}
 .benefit .icon{
   margin: 0 auto;
   width:203px;
@@ -90,7 +120,11 @@ div.benefit{
     height: 118px;
     background-position: center;
   }
-
+  div.benefit{
+    h3{
+      font-size: .9em;
+    }
+  }
 }
 @media only screen and (max-width: 767px) {
   .adFreeGaming{
@@ -100,10 +134,11 @@ div.benefit{
   }
   div.benefit{
     h3{
-      height: 25px;
+      height: 12px;
+      font-size: .9em;
     }
     p{
-      font-size: .875em;
+      font-size: .75em;
     }
   }
 }
